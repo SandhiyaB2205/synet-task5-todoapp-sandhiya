@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>TODO APP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-color: linen;">
+<body>
     <center>
-        <h1 style="color: darkgreen;">WELCOME TO THE TODO APP</h1>
+        <h1 style="color: rgb(66, 3, 80); font-family: 'Poppins', sans-serif;">WELCOME TO THE TODO APP</h1>
+
         <br>
         <input
             type="text"
             id="taskinput"
             placeholder="Enter your task here"
-            style="width: 300px; height: 30px; font-size: 16px;"
-        >
-        <button id="addbt" style="height: 36px; font-size: 16px;"
-        >Add Task</button>
+            style="width: 300px; height: 50px; font-size: 16px;">
+        <button id="addbt" style="height: 40px; font-size: 16px;color:rgb(117, 3, 125)">Add Task</button>
         <ul id="tasklist"></ul>
     </center>
     <script src="tasks.js"></script>
