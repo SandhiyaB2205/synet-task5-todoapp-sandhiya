@@ -18,7 +18,7 @@ function addtask() {
 
     tasks.push(taskobj);
     taskinput.value = "";
-
+    savetask();
     renderTasks();
 }
 
@@ -37,6 +37,7 @@ function renderTasks() {
 
         li.addEventListener("click", () => {
             task.completed = !task.completed;
+            savetask();
             renderTasks();
         });
 
@@ -44,9 +45,9 @@ function renderTasks() {
         deleteBtn.textContent = "Delete";
 
         deleteBtn.addEventListener("click", (event) => {
-         
-
+            event.stopPropagation();
             tasks.splice(index, 1);
+            savetask();
             renderTasks();
         });
 
@@ -54,6 +55,18 @@ function renderTasks() {
 
         tasklist.appendChild(li);
     });
+
+}
+function savetask(){
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+}
+function loadtask(){
+    const storedtask=localStorage.getItem("tasks");
+    if(storedtask){
+        tasks=JSON.parse(storedtask);
+    }
+    renderTasks();
 }
 
 addbt.addEventListener("click", addtask);
+loadtask();
